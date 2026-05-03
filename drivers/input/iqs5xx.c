@@ -365,7 +365,7 @@ static int iqs5xx_init(const struct device *dev) {
         return -ENODEV;
     }
 
-    ret = gpio_pin_configure_dt(&config->rdy_gpio, GPIO_INPUT);
+    ret = gpio_pin_configure_dt(&config->rdy_gpio, GPIO_INPUT | GPIO_PULL_DOWN);
     if (ret < 0) {
         LOG_ERR("Failed to configure RDY GPIO: %d", ret);
         return ret;
